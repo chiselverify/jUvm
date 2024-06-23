@@ -29,3 +29,8 @@ It shall replace the cocotb/PyUVM simulation environment.
  * What else is out in the field (related work)?
  * We shall have a ChiselTest compatible API for the transition from Chisel 5/6
  * A better name, I don't like jUvm
+
+## Issues
+
+ * We cannot mix Scala 3 and Chisel (Scala 2)
+ * We can use Chisel types, but we cannot compute with them, or assign new values

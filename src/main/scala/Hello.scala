@@ -1,1 +1,1 @@
-@main def hello() = println("Hello, World!")
+// @main def hello() = println("Hello, World!")
