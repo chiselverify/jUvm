@@ -2,7 +2,16 @@
 
 This repository investigates how to test and verify digital circuits in Java, a modern, statically typed language.
 Furthermore, we also want Scala bindings.
-It shall replace the cocotb/PyUVM simulation environment. 
+It shall replace the cocotb/PyUVM simulation environment.
+
+## Steps
+
+ * [ ] Start as simple as possible: peek/poke with `BigInt` in Java
+   - Just three functions are needed: `poke()`, `peek()`, and `step()`
+ * [ ] Maybe start with a dummy backend, e.g., some Java class representing HW
+ * [ ] Use the simplest backend possible
+ * [ ] Explore Scala features
+ * [ ] Read on SW testing
 
 ## To Explore
 
@@ -19,6 +28,12 @@ It shall replace the cocotb/PyUVM simulation environment.
 
  * Shall we start with Scala 3?
  * Maybe a fake HDL for getting started quickly
+ * Can we use functional programming to make testing nicer? E.g. as in the follwing ScalaTest example:
+```Scala
+val xs = 1 to 3
+val it = xs.iterator
+eventually { it.next() shouldBe 3 }
+```
 
 ## TODO
 
@@ -33,4 +48,5 @@ It shall replace the cocotb/PyUVM simulation environment.
 ## Issues
 
  * We cannot mix Scala 3 and Chisel (Scala 2)
+   - It is possible according to Scala 3 documentation, but macros/compiler plugin might give us troubles
  * We can use Chisel types, but we cannot compute with them, or assign new values
