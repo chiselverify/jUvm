@@ -50,3 +50,15 @@ eventually { it.next() shouldBe 3 }
  * We cannot mix Scala 3 and Chisel (Scala 2)
    - It is possible according to Scala 3 documentation, but macros/compiler plugin might give us troubles
  * We can use Chisel types, but we cannot compute with them, or assign new values
+
+## Annoying Stuff in ChiselTest
+
+ * I want to test different implementations with the same test. Following does not work:
+```Scala
+  val rfs = List(Module(new RegisterFile()), Module(new RegisterFile2()))
+
+for (rf <- rfs) {
+   "RegisterFile" should "pass" in {
+      test(rf) {
+         d => {
+```
